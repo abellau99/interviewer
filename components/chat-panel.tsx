@@ -12,6 +12,7 @@ import { EmptyScreen } from './empty-screen'
 import Textarea from 'react-textarea-autosize'
 import { nanoid } from 'ai'
 import { useAppState } from '@/lib/utils/app-state'
+import { AddDocumentModal } from './document-modal'
 
 interface ChatPanelProps {
   messages: UIState
@@ -176,6 +177,15 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
             <ArrowRight size={20} />
           </Button>
         </div>
+        <AddDocumentModal>
+          <Button
+            className="w-full flex gap-x-3 items-center justify-center px-3"
+            title="Add New Document"
+          >
+            <PlusIcon className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <span>Add Document</span>
+          </Button>
+        </AddDocumentModal>
         <EmptyScreen
           submitMessage={message => {
             setInput(message)
